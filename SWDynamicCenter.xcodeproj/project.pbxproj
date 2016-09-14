@@ -288,6 +288,7 @@
 				7C92E2411D898A06005DCC8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
