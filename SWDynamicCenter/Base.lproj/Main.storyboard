@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-CQ-wNJ">
+                            <view contentMode="scaleToFill" restorationIdentifier="MCV" translatesAutoresizingMaskIntoConstraints="NO" id="chA-CQ-wNJ">
                                 <rect key="frame" x="20" y="20" width="560" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbK-RY-Ogz">
@@ -118,8 +118,9 @@
                                     <constraint firstItem="WbK-RY-Ogz" firstAttribute="centerY" secondItem="chA-CQ-wNJ" secondAttribute="centerY" id="Y0g-vL-FtR"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XQ-hM-Uwf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XQ-hM-Uwf">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aAu-eN-4cY"/>
                                 </constraints>
@@ -140,6 +141,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonsContainerView" destination="tNs-BC-9LB" id="bAf-Qd-te7"/>
+                        <outlet property="contentContainerView" destination="WbK-RY-Ogz" id="T1n-QA-wj0"/>
+                        <outlet property="mainContainerView" destination="chA-CQ-wNJ" id="D27-sn-YpI"/>
                         <outlet property="tableHeight" destination="n4L-7a-vQ4" id="tVN-JU-Yyj"/>
                         <outlet property="theTable" destination="vPF-Yw-1dE" id="JrN-3T-iqf"/>
                     </connections>

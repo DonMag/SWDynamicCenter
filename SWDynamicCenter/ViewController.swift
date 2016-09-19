@@ -10,12 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+	@IBOutlet weak var mainContainerView: UIView!
+	@IBOutlet weak var contentContainerView: UIView!
+	
 	@IBOutlet weak var theTable: UITableView!
+	@IBOutlet weak var buttonsContainerView: UIView!
+	
+	
+	
 	
 	@IBOutlet weak var tableHeight: NSLayoutConstraint!
 	
+#if DMDEBUG
 	var nRows = 8
-	
+#else
+	var nRows = 6
+#endif
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,6 +33,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		let h = 44 * self.nRows
 		self.tableHeight.constant = CGFloat(h)
+		
+		
+#if DMDEBUG
+	
+	self.view.backgroundColor = UIColor.orangeColor()
+	
+	self.mainContainerView.backgroundColor = UIColor.blueColor()
+	self.contentContainerView.backgroundColor = UIColor.cyanColor()
+	self.buttonsContainerView.backgroundColor = UIColor.yellowColor()
+	
+#else
+	
+	self.view.backgroundColor = UIColor.darkGrayColor()
+	
+	self.mainContainerView.backgroundColor = UIColor.clearColor()
+	self.contentContainerView.backgroundColor = UIColor.clearColor()
+	self.buttonsContainerView.backgroundColor = UIColor.clearColor()
+	
+#endif
 		
 	}
 	
