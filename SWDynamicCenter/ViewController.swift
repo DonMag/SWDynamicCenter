@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBOutlet weak var tableHeight: NSLayoutConstraint!
 	
-	var nRows = 6
+	var nRows = 8
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 #endif
 		
 		
-		let headerView = UIView(frame: CGRectMake(0, 0, self.theTable.frame.size.width, 40)) //was 40
+		let headerView = UIView(frame: CGRectMake(0, 0, 100, 40)) //was 40
 		headerView.backgroundColor = UIColor.redColor()
 		
 		let label = UILabel()
@@ -61,14 +61,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		label.font = label.font.fontWithSize(14)
 		
+
 		headerView.addSubview(label)
 		
 		theTable.tableHeaderView = headerView
 		
+		
+		label.translatesAutoresizingMaskIntoConstraints = false
+		
+		let leadingConstraint = NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: headerView, attribute: .Leading, multiplier: 1, constant: 0)
+		let trailingConstraint = NSLayoutConstraint(item: label, attribute: .Trailing, relatedBy: .Equal, toItem: headerView, attribute: .Trailing, multiplier: 1, constant: 0)
+		let topConstraint = NSLayoutConstraint(item: label, attribute: .Top, relatedBy: .Equal, toItem: headerView, attribute: .Top, multiplier: 1, constant: 0)
+		let bottomConstraint = NSLayoutConstraint(item: label, attribute: .Bottom, relatedBy: .Equal, toItem: headerView, attribute: .Bottom, multiplier: 1, constant: 0)
+
+		headerView.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+
 	}
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		
+		self.theTable.tableHeaderView?.frame.size.width = self.theTable.frame.size.width
 		
 		self.adjustTableHeight()
 		
