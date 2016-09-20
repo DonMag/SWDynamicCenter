@@ -21,19 +21,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBOutlet weak var tableHeight: NSLayoutConstraint!
 	
-#if DMDEBUG
-	var nRows = 8
-#else
 	var nRows = 6
-#endif
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		let h = 44 * self.nRows
-		self.tableHeight.constant = CGFloat(h)
-		
+		self.theTable.hidden = true
 		
 #if DMDEBUG
 	
@@ -53,6 +47,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 #endif
 		
+		
+		let headerView = UIView(frame: CGRectMake(0, 0, self.theTable.frame.size.width, 40)) //was 40
+		headerView.backgroundColor = UIColor.redColor()
+		
+		let label = UILabel()
+		
+		label.text = "Tue, Sep 20 - 1 of 1 Events"
+		
+		label.textAlignment = .Center
+		label.frame = headerView.frame
+		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+		
+		label.font = label.font.fontWithSize(14)
+		
+		headerView.addSubview(label)
+		
+		theTable.tableHeaderView = headerView
+		
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		self.adjustTableHeight()
+		
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -60,16 +79,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		// Dispose of any resources that can be recreated.
 	}
 	
+	func adjustTableHeight() -> Void {
+		
+		dispatch_async(dispatch_get_main_queue(), { () -> Void in
+
+			var h = CGFloat(44 * self.nRows)
+			if let hh = self.theTable.tableHeaderView?.frame.size.height {
+				h += hh
+			}
+		
+			self.tableHeight.constant = h
+			
+			self.theTable.hidden = false
+			
+		})
+		
+	}
+	
 	@IBAction func doGrow(sender: AnyObject) {
 		
 		nRows += 1
 		theTable.reloadData()
-		dispatch_async(dispatch_get_main_queue(), { () -> Void in
-			
-			let h = 44 * self.nRows
-			self.tableHeight.constant = CGFloat(h)
-			
-		})
+		
+		self.adjustTableHeight()
 		
 	}
 	
@@ -77,12 +109,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		nRows -= 1
 		theTable.reloadData()
-		dispatch_async(dispatch_get_main_queue(), { () -> Void in
-			
-			let h = 44 * self.nRows
-			self.tableHeight.constant = CGFloat(h)
-			
-		})
+		
+		self.adjustTableHeight()
 		
 	}
 	
