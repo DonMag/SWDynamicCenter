@@ -28,12 +28,8 @@
                                                 <rect key="frame" x="8" y="324" width="528" height="68"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4u-LB-42y">
-                                                        <rect key="frame" x="8" y="19" width="102" height="30"/>
+                                                        <rect key="frame" x="8" y="19" width="238" height="30"/>
                                                         <color key="backgroundColor" red="0.54434974749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="102" id="S5a-Be-GGL"/>
-                                                            <constraint firstAttribute="height" constant="30" id="Xdy-gI-0dG"/>
-                                                        </constraints>
                                                         <state key="normal" title="Grow">
                                                             <color key="titleColor" red="0.95294744320000002" green="0.95294744320000002" blue="0.95294744320000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -42,12 +38,8 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgn-Ka-Uqa">
-                                                        <rect key="frame" x="418" y="19" width="102" height="30"/>
+                                                        <rect key="frame" x="278" y="19" width="238" height="30"/>
                                                         <color key="backgroundColor" red="0.54434974749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="cXN-lu-vkS"/>
-                                                            <constraint firstAttribute="width" constant="102" id="fZ6-74-eht"/>
-                                                        </constraints>
                                                         <state key="normal" title="Shrink">
                                                             <color key="titleColor" red="0.95294744320000002" green="0.95294744320000002" blue="0.95294744320000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -58,11 +50,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="kgn-Ka-Uqa" firstAttribute="centerY" secondItem="tNs-BC-9LB" secondAttribute="centerY" id="4O8-ZK-TGR"/>
+                                                    <constraint firstItem="kgn-Ka-Uqa" firstAttribute="top" secondItem="tNs-BC-9LB" secondAttribute="top" constant="19" id="A9V-4H-A8t"/>
+                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="leading" secondItem="tNs-BC-9LB" secondAttribute="leading" constant="8" id="BRx-S5-sYS"/>
+                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="top" secondItem="tNs-BC-9LB" secondAttribute="top" constant="19" id="G1o-mj-L6s"/>
+                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="height" secondItem="kgn-Ka-Uqa" secondAttribute="height" id="JxT-G7-Gut"/>
                                                     <constraint firstAttribute="height" constant="68" id="UqM-uB-v5W"/>
-                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="leading" secondItem="tNs-BC-9LB" secondAttribute="leading" constant="8" id="i5P-0n-bnL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="kgn-Ka-Uqa" secondAttribute="trailing" constant="8" id="s9D-LY-l0N"/>
-                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="centerY" secondItem="tNs-BC-9LB" secondAttribute="centerY" id="tP0-fR-JkU"/>
+                                                    <constraint firstAttribute="bottom" secondItem="c4u-LB-42y" secondAttribute="bottom" constant="19" id="cvA-0L-QPt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kgn-Ka-Uqa" secondAttribute="trailing" constant="12" id="gpX-kd-9JB"/>
+                                                    <constraint firstItem="c4u-LB-42y" firstAttribute="width" secondItem="kgn-Ka-Uqa" secondAttribute="width" id="iwC-jt-G9F"/>
+                                                    <constraint firstItem="kgn-Ka-Uqa" firstAttribute="leading" secondItem="c4u-LB-42y" secondAttribute="trailing" constant="32" id="kLZ-n2-Xhf"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-Yw-1dE">
